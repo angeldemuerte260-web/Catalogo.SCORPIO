@@ -1,0 +1,44 @@
+<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Administrador | Catálogo Nova</title><link rel="stylesheet" href="../css/style.css"></head>
+<body data-page="admin"><header class="topbar"><a class="brand" id="brandName" href="../index.html">CATÁLOGO NOVA</a><nav><a href="../index.html">Ver catálogo</a></nav></header>
+<main class="wrap admin-wrap">
+<section id="loginBox" class="panel login"><p class="eyebrow">ACCESO RESTRINGIDO</p><h1>Administrador</h1><p id="loginHint" class="muted"></p>
+<form id="loginForm"><label>Contraseña<input id="adminPass" type="password" required autocomplete="current-password"></label><label id="confirmWrap" class="hidden">Repite la contraseña<input id="adminPass2" type="password" autocomplete="new-password"></label><button class="gold-btn" id="loginBtn">Ingresar</button></form></section>
+
+<div id="adminContent" class="hidden">
+<div class="admin-heading"><div><p class="eyebrow">PANEL DE CONTROL</p><h1>Administración</h1></div><button id="logout" class="outline-btn">Cerrar sesión</button></div>
+<nav class="tabs" role="tablist"><button type="button" data-tabbtn="ventas">Calculadora de ventas</button><button type="button" data-tabbtn="productos">Productos</button><button type="button" data-tabbtn="ajustes">Ajustes</button></nav>
+
+<div class="tab-pane hidden" data-tab="ventas">
+<section class="panel"><h2>Calculadora de ventas</h2><p class="muted">Registra cada venta con el nombre del producto, la fecha, la hora y el costo. El total se calcula solo.</p>
+<form id="saleForm" class="form-grid"><input id="editSaleId" type="hidden">
+<label class="full">Nombre del producto<input id="saleProduct" list="productList" required maxlength="80" placeholder="Escribe o elige un producto del catálogo" autocomplete="off"></label><datalist id="productList"></datalist>
+<label>Fecha<input id="saleDate" type="date" required></label>
+<label>Hora<span class="inline-field"><input id="saleTime" type="time" required><button type="button" id="nowBtn" class="small-btn">Ahora</button></span></label>
+<label>Costo por unidad (Bs.)<input id="saleCost" type="number" min="0" step="0.01" required placeholder="0.00"></label>
+<label>Cantidad<input id="saleQty" type="number" min="1" step="1" value="1" required></label>
+<p id="salePreview" class="notice full"></p>
+<div class="inline-form full"><button class="gold-btn" id="saleSubmit">Agregar venta</button><button type="button" id="cancelSale" class="outline-btn hidden">Cancelar edición</button></div></form></section>
+
+<section class="panel"><h2>Ventas registradas</h2>
+<div class="form-grid"><label>Desde<input id="fromDate" type="date"></label><label>Hasta<input id="toDate" type="date"></label><label class="full">Buscar producto<input id="saleSearch" type="search" placeholder="Nombre del producto"></label></div>
+<div class="total-box"><div><span id="totalLabel">Total vendido</span><strong id="totalAmount">Bs. 0.00</strong></div><div><span>Ventas</span><strong id="totalCount">0</strong></div><div><span>Unidades</span><strong id="totalUnits">0</strong></div></div>
+<div class="inline-form"><button type="button" id="jpgBtn" class="gold-btn">Descargar JPG para imprimir</button><button type="button" id="clearFilters" class="outline-btn">Limpiar filtros</button><button type="button" id="clearAll" class="danger">Borrar todas las ventas</button></div>
+<div class="table-scroll"><table class="sales-table"><thead><tr><th>#</th><th>Producto</th><th>Fecha</th><th>Hora</th><th>Cant.</th><th>Costo</th><th>Subtotal</th><th></th></tr></thead><tbody id="salesBody"></tbody><tfoot><tr><td colspan="6">TOTAL VENDIDO</td><td id="footTotal"></td><td></td></tr></tfoot></table></div></section>
+</div>
+
+<div class="tab-pane hidden" data-tab="productos">
+<section class="panel"><h2>Agregar o editar productos</h2><form id="productForm" class="form-grid"><input id="editProductId" type="hidden">
+<label>Nombre del producto<input id="productName" required maxlength="80"></label><label>Precio (Bs.)<input id="productPrice" type="number" min="0" step="0.01" required></label>
+<label>Categoría<input id="productCategory" list="categoryList" maxlength="40" placeholder="Ej.: Cabello"></label><datalist id="categoryList"></datalist>
+<label>Fotografía<input id="productImage" type="file" accept="image/*"></label>
+<label class="full">Descripción<textarea id="productDescription" maxlength="200"></textarea></label>
+<label class="checkline full hidden" id="removeImgWrap"><input id="removeImg" type="checkbox"> Quitar la fotografía actual</label>
+<div class="inline-form full"><button class="gold-btn">Guardar producto</button><button type="button" id="cancelProduct" class="outline-btn">Cancelar</button></div></form><div id="adminProducts"></div></section>
+</div>
+
+<div class="tab-pane hidden" data-tab="ajustes">
+<section class="panel"><h2>Nombre y presentación</h2><form id="settingsForm" class="form-grid"><label>Nombre del negocio<input id="siteName" maxlength="60"></label><label>Frase de portada<input id="tagline" maxlength="90"></label><div class="inline-form full"><button class="gold-btn">Guardar ajustes</button></div></form></section>
+<section class="panel"><h2>Cambiar contraseña</h2><form id="passForm" class="form-grid"><label>Contraseña actual<input id="curPass" type="password" required autocomplete="current-password"></label><label>Nueva contraseña (mínimo 4 caracteres)<input id="newPass" type="password" required minlength="4" autocomplete="new-password"></label><div class="inline-form full"><button class="gold-btn">Cambiar contraseña</button></div></form></section>
+</div>
+</div></main>
+<footer><span id="footerName">Catálogo Nova</span><a href="../index.html">Volver al catálogo</a></footer><script src="../js/admin.js"></script></body></html>

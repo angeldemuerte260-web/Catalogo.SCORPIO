@@ -1,0 +1,17 @@
+<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Catálogo Nova</title><link rel="stylesheet" href="css/style.css"></head>
+<body data-page="home"><header class="topbar"><a class="brand" href="index.html" id="brandName">CATÁLOGO NOVA</a><nav><a class="active" href="index.html">Catálogo</a><a href="pages/admin.html">Administrador</a></nav></header>
+<section class="hero" id="hero"><div class="hero-shade"><p class="eyebrow">PRODUCTOS · CALIDAD · PRECIO</p><h1 id="heroTitle">CATÁLOGO NOVA</h1><p class="hero-copy">Todo lo que necesitas, en un solo lugar</p><a class="gold-btn" href="#catalogo">Ver productos</a></div></section>
+<main class="wrap"><section class="intro"><p class="eyebrow">NUESTROS PRODUCTOS</p><h2 id="catalogo">Catálogo</h2><p>Busca por nombre o filtra por categoría.</p></section>
+<div class="catalog-tools"><input id="search" type="search" placeholder="Buscar producto" aria-label="Buscar producto"><select id="categoryFilter" aria-label="Categoría"></select></div>
+<div id="catalog" class="catalog"></div>
+<section class="cart-panel" id="carrito">
+ <div class="cart-heading"><div><p class="eyebrow">TU COMPRA</p><h2>Carrito de compras</h2><p class="muted">Agrega productos del catálogo y revisa el total antes de confirmar.</p></div><span class="cart-count" id="cartCount">0 productos</span></div>
+ <div id="cartItems" class="cart-items"><p class="muted">Tu carrito está vacío.</p></div>
+ <div class="cart-total"><span>Total de la compra</span><strong id="cartTotal">Bs. 0.00</strong></div>
+ <form id="checkoutForm" class="checkout-form">
+  <label>Nombre del cliente (opcional)<input id="customerName" maxlength="80" placeholder="Nombre del cliente"></label>
+  <button class="gold-btn" type="submit" id="checkoutBtn" disabled>Confirmar compra y generar comprobante</button>
+ </form>
+ <p class="cart-note">Al confirmar, la venta se registrará en el administrador y podrás descargar el comprobante JPG en tamaño carta.</p>
+</section></main>
+<footer><span id="footerName">Catálogo Nova</span><span>Precios en bolivianos (Bs.)</span></footer><script src="js/catalogo.js"></script></body></html>
